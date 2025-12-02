@@ -44,8 +44,8 @@ const UnderConstruction = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    let animationFrameId;
-    let width, height;
+    let animationFrameId: number;
+    let width: number, height: number;
 
     // Configuración de partículas
     const particles = [];
@@ -218,7 +218,7 @@ const UnderConstruction = () => {
       </div>
 
       {/* CSS Styles para animaciones específicas */}
-      <style jsx>{`
+      <style>{`
         @keyframes loading-bar {
           0% { width: 10%; }
           50% { width: 60%; }
