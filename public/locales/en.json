@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "level": "LVL. 7+",
+    "projects": "Projects"
+  },
+  "hero": {
+    "class": "CLASS: SENIOR FULLSTACK ARCHITECT",
+    "title1": "CODING",
+    "title2": "INTELLIGENCE",
+    "title3": "PIXEL BY PIXEL",
+    "description": "I'm Luis Sebastián Vásquez. I transform complex architectures into scalable magic. Specialist in AI Agents and Serverless.",
+    "questButton": "Start Quest",
+    "projectsButton": "View Projects"
+  },
+  "avatar": {
+    "status": "READY FOR QUEST",
+    "name": "WIZ AVATAR"
+  },
+  "projects": {
+    "title": "< THE FORGE />",
+    "items": [
+      {
+        "title": "AI Recruitment Platform",
+        "description": "An automated screening platform using AWS Bedrock and specialized AI agents to score investment candidates.",
+        "tags": ["AWS", "Python", "AI", "FastAPI"]
+      },
+      {
+        "title": "APAP Contests UI",
+        "description": "A user interface for a digital banking contests that boosted loan applications by 32%.",
+        "tags": ["React", "TypeScript", "UI/UX"]
+      },
+      {
+        "title": "Morada Uno Rentals",
+        "description": "Mexico's first fully online real estate rental service.",
+        "tags": ["React", "AWS S3", "JavaScript"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "QUEST LOG",
+    "recent": "RECENT ACTIVITY",
+    "jobs": [
+      {
+        "title": "Senior Fullstack Engineer @ Jobsity",
+        "date": "2025 - PRESENT",
+        "mission": "Mission: AI Recruitment Automation",
+        "achievements": [
+          "Architected platform with AWS Bedrock, reducing screening time by 75%.",
+          "Deployed 15 specialized AI agents for investment scoring (300-850 scale) using Python & FastAPI."
+        ]
+      },
+      {
+        "title": "Senior Engineer @ APAP",
+        "date": "2021 - 2024",
+        "mission": "Mission: Digital Banking Modernization",
+        "achievements": [
+          "Led 'APAP Contests' UI, boosting loan applications by 32%.",
+          "Mentored junior developers in React best practices and component lifecycles."
+        ]
+      },
+      {
+        "title": "React Engineer @ Morada Uno",
+        "date": "2021 - 2022",
+        "mission": "Mission: Real Estate Tech",
+        "achievements": [
+          "Contributed to Mexico's first fully online rental service using React & AWS.",
+          "Leveraged S3 for static asset storage, optimizing load times."
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "connect": "PRESS START TO CONNECT",
+    "linkedin": "LINKEDIN",
+    "github": "GITHUB",
+    "devto": "DEV.TO",
+    "copyright": "© 2025 LUIS SEBASTIAN VASQUEZ. CRAFTED WITH REACT & MAGIC."
+  },
+  "contactModal": {
+    "title": "START NEW QUEST?",
+    "email": "Send Scroll (Email)",
+    "linkedin": "The Guild (LinkedIn)",
+    "github": "The Armory (GitHub)",
+    "close": "[CLOSE MENU]"
+  }
+}

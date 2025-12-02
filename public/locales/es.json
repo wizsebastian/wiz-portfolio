@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "level": "NVL. 7+",
+    "projects": "Proyectos"
+  },
+  "hero": {
+    "class": "CLASE: ARQUITECTO FULLSTACK SENIOR",
+    "title1": "CODIFICANDO",
+    "title2": "INTELIGENCIA",
+    "title3": "PIXEL A PIXEL",
+    "description": "Soy Luis Sebastián Vásquez. Transformo arquitecturas complejas en magia escalable. Especialista en Agentes de IA y Serverless.",
+    "questButton": "Iniciar Misión",
+    "projectsButton": "Ver Proyectos"
+  },
+  "avatar": {
+    "status": "LISTO PARA LA MISIÓN",
+    "name": "AVATAR DE MAGO"
+  },
+  "projects": {
+    "title": "< LA FORJA />",
+    "items": [
+      {
+        "title": "Plataforma de Reclutamiento con IA",
+        "description": "Una plataforma de selección automatizada que utiliza AWS Bedrock y agentes de IA especializados para calificar a los candidatos de inversión.",
+        "tags": ["AWS", "Python", "IA", "FastAPI"]
+      },
+      {
+        "title": "UI de Concursos APAP",
+        "description": "Una interfaz de usuario para concursos de banca digital que aumentó las solicitudes de préstamos en un 32%.",
+        "tags": ["React", "TypeScript", "UI/UX"]
+      },
+      {
+        "title": "Alquileres Morada Uno",
+        "description": "El primer servicio de alquiler inmobiliario totalmente en línea de México.",
+        "tags": ["React", "AWS S3", "JavaScript"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "REGISTRO DE MISIONES",
+    "recent": "ACTIVIDAD RECIENTE",
+    "jobs": [
+      {
+        "title": "Ingeniero Fullstack Senior @ Jobsity",
+        "date": "2025 - PRESENTE",
+        "mission": "Misión: Automatización de Reclutamiento con IA",
+        "achievements": [
+          "Arquitecté una plataforma con AWS Bedrock, reduciendo el tiempo de selección en un 75%.",
+          "Desplegué 15 agentes de IA especializados para la puntuación de inversiones (escala 300-850) usando Python & FastAPI."
+        ]
+      },
+      {
+        "title": "Ingeniero Senior @ APAP",
+        "date": "2021 - 2024",
+        "mission": "Misión: Modernización de la Banca Digital",
+        "achievements": [
+          "Lideré la interfaz de usuario de 'Concursos APAP', aumentando las solicitudes de préstamos en un 32%.",
+          "Mentoricé a desarrolladores junior en las mejores prácticas de React y los ciclos de vida de los componentes."
+        ]
+      },
+      {
+        "title": "Ingeniero React @ Morada Uno",
+        "date": "2021 - 2022",
+        "mission": "Misión: Tecnología Inmobiliaria",
+        "achievements": [
+          "Contribuí al primer servicio de alquiler totalmente en línea de México usando React & AWS.",
+          "Aproveché S3 para el almacenamiento de activos estáticos, optimizando los tiempos de carga."
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "connect": "PRESIONA START PARA CONECTAR",
+    "linkedin": "LINKEDIN",
+    "github": "GITHUB",
+    "devto": "DEV.TO",
+    "copyright": "© 2025 LUIS SEBASTIÁN VÁSQUEZ. CREADO CON REACT & MAGIA."
+  },
+  "contactModal": {
+    "title": "¿INICIAR NUEVA MISIÓN?",
+    "email": "Enviar Pergamino (Email)",
+    "linkedin": "El Gremio (LinkedIn)",
+    "github": "La Armería (GitHub)",
+    "close": "[CERRAR MENÚ]"
+  }
+}
