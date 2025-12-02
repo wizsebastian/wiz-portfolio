@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const UnderConstruction = () => {
   const canvasRef = useRef(null);
@@ -8,17 +8,17 @@ const UnderConstruction = () => {
   useEffect(() => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*";
     const originalText = "SYSTEM_BUILDING...";
-    let interval;
+    let interval: ReturnType<typeof setInterval> | undefined;
 
     const startGlitch = () => {
       let iteration = 0;
       clearInterval(interval);
       
       interval = setInterval(() => {
-        setGlitchText(prev => 
+        setGlitchText(_prev => 
           originalText
             .split("")
-            .map((letter, index) => {
+            .map((_letter, index) => {
               if (index < iteration) {
                 return originalText[index];
               }
@@ -42,13 +42,16 @@ const UnderConstruction = () => {
 
   // Animación del Canvas (Fondo Grid + Partículas)
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const canvasElement = canvasRef.current;
+    if (!canvasElement) return;
+    const canvas: HTMLCanvasElement = canvasElement;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     let animationFrameId: number;
     let width: number, height: number;
 
     // Configuración de partículas
-    const particles = [];
+    const particles: Particle[] = [];
     const particleCount = 50;
 
     const resize = () => {
@@ -62,6 +65,13 @@ const UnderConstruction = () => {
     resize();
 
     class Particle {
+      x!: number;
+      y!: number;
+      size!: number;
+      speedY!: number;
+      color!: string;
+      alpha!: number;
+
       constructor() {
         this.reset();
       }
@@ -80,7 +90,7 @@ const UnderConstruction = () => {
         if (this.y < 0) this.reset();
       }
 
-      draw() {
+      draw(ctx: CanvasRenderingContext2D) {
         ctx.fillStyle = this.color;
         ctx.globalAlpha = this.alpha;
         ctx.fillRect(this.x, this.y, this.size, this.size); // Dibujar cuadrados (Pixel art style)
@@ -130,7 +140,7 @@ const UnderConstruction = () => {
       // --- 2. DIBUJAR PARTÍCULAS ---
       particles.forEach(p => {
         p.update();
-        p.draw();
+        p.draw(ctx);
       });
 
       // --- 3. Vignette (Oscurecer bordes) ---

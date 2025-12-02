@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const CanvasPortraitCard = () => {
   const canvasRef = useRef(null);
@@ -14,9 +14,12 @@ const CanvasPortraitCard = () => {
     "https://api.dicebear.com/9.x/fun-emoji/png?seed=Gamer&backgroundColor=transparent";
 
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const canvasElement = canvasRef.current;
+    if (!canvasElement) return;
+    const canvas: HTMLCanvasElement = canvasElement;
     const ctx = canvas.getContext("2d");
-    let animationFrameId;
+    if (!ctx) return;
+    let animationFrameId: number;
 
     // Variables de estado para la animación
     let progress = 0; // 0 = 8bit, 1 = 3D
@@ -41,12 +44,12 @@ const CanvasPortraitCard = () => {
     threeDImg.onload = onLoad;
 
     // Función de interpolación lineal (Lerp) para suavizar movimientos
-    const lerp = (start, end, t) => {
+    const lerp = (start: number, end: number, t: number) => {
       return start * (1 - t) + end * t;
     };
 
     // Dibujar rectángulo redondeado en Canvas
-    const roundRect = (ctx, x, y, w, h, r) => {
+    const roundRect = (ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) => {
       if (w < 2 * r) r = w / 2;
       if (h < 2 * r) r = h / 2;
       ctx.beginPath();

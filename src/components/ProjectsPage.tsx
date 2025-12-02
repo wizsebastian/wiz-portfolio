@@ -3,20 +3,34 @@ import { Link } from "react-router-dom";
 import { Globe, Sun } from "lucide-react";
 import logo from '../assets/logo.png';
 
+// --- TYPE DEFINITIONS ---
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+interface TranslationContent {
+  nav: { level: string; projects: string; };
+  projects: { title: string; items: Project[]; };
+}
+
+interface PixelCardProps {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+  darkMode: boolean;
+}
+
 // --- DATA ---
-const initialTranslations = {
-  nav: {},
-  hero: {},
-  avatar: {},
-  projects: { items: [] },
-  experience: { jobs: [] },
-  footer: {},
-  contactModal: {},
+const initialTranslations: TranslationContent = {
+  nav: { level: '', projects: '' },
+  projects: { title: '', items: [] },
 };
 
 // --- COMPONENTS & UTILS ---
 
-const PixelCard = ({ children, className = "", onClick, darkMode }) => {
+const PixelCard: React.FC<PixelCardProps> = ({ children, className = "", onClick, darkMode }) => {
   const border = "border-purple-500";
   const bg = darkMode ? "bg-slate-800" : "bg-white";
 
@@ -43,7 +57,7 @@ const PixelCard = ({ children, className = "", onClick, darkMode }) => {
 const ProjectsPage = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [language, setLanguage] = useState("en");
-  const [translations, setTranslations] = useState(initialTranslations);
+  const [translations, setTranslations] = useState<TranslationContent>(initialTranslations);
 
   useEffect(() => {
     const fetchTranslations = async () => {
@@ -78,6 +92,8 @@ const ProjectsPage = () => {
     primary: "text-purple-400",
     accent: "text-yellow-400",
     border: "border-purple-500",
+    title: darkMode ? "text-white" : "text-slate-900",
+    text: darkMode ? "text-gray-300" : "text-slate-700",
   };
 
   if (!t.nav.level) {
@@ -143,7 +159,7 @@ const ProjectsPage = () => {
         />
 
         <div className="grid md:grid-cols-3 gap-6">
-          {t.projects.items.map((project, i) => (
+          {t.projects.items.map((project: Project, i: number) => (
             <PixelCard key={i} darkMode={darkMode}>
               <div className="flex items-center gap-3 mb-4 border-b-2 border-slate-600 pb-2">
                 <h3 className={`font-bold text-xl ${colors.title}`}>
@@ -154,7 +170,7 @@ const ProjectsPage = () => {
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag, j) => (
+                {project.tags.map((tag: string, j: number) => (
                   <span
                     key={j}
                     className="text-xs bg-purple-900 text-purple-200 px-2 py-1 border border-purple-400"

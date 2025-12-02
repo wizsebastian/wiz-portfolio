@@ -3,34 +3,60 @@ import { Link } from "react-router-dom";
 import CanvasPortraitCard from "./CanvasPortraitCard";
 import {
   ChevronRight,
-  Code,
-  Cpu,
   Globe,
   Github,
   Linkedin,
   Mail,
   Star,
   Sun,
-  Terminal,
-  Zap,
   X,
 } from "lucide-react";
 import logo from '../assets/logo.png';
 
+// --- TYPE DEFINITIONS ---
+interface Job {
+  title: string;
+  date: string;
+  mission: string;
+  achievements: string[];
+}
+
+interface TranslationContent {
+  nav: { level: string; projects: string; };
+  hero: { class: string; title1: string; title2: string; title3: string; description: string; questButton: string; projectsButton: string; };
+  avatar: { status: string; name: string; };
+  experience: { title:string; recent:string, jobs: Job[]; };
+  footer: { connect: string; linkedin: string; github: string; devto: string; copyright: string; };
+  contactModal: { title: string; email: string; linkedin: string; github: string; close: string; };
+}
+
+interface PixelCardProps {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+  darkMode: boolean;
+}
+
+interface ContactModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  darkMode: boolean;
+  t: TranslationContent;
+}
+
 // --- DATA ---
-const initialTranslations = {
-  nav: {},
-  hero: {},
-  avatar: {},
-  projects: { items: [] },
-  experience: { jobs: [] },
-  footer: {},
-  contactModal: {},
+const initialTranslations: TranslationContent = {
+  nav: { level: '', projects: '' },
+  hero: { class: '', title1: '', title2: '', title3: '', description: '', questButton: '', projectsButton: '' },
+  avatar: { status: '', name: '' },
+  experience: { title: '', recent: '', jobs: [] },
+  footer: { connect: '', linkedin: '', github: '', devto: '', copyright: '' },
+  contactModal: { title: '', email: '', linkedin: '', github: '', close: '' },
 };
 
 // --- COMPONENTS & UTILS ---
 
-const PixelCard = ({ children, className = "", onClick, darkMode }) => {
+const PixelCard: React.FC<PixelCardProps> = ({ children, className = "", onClick, darkMode }) => {
   const border = "border-purple-500";
   const bg = darkMode ? "bg-slate-800" : "bg-white";
 
@@ -56,7 +82,7 @@ const PixelCard = ({ children, className = "", onClick, darkMode }) => {
 
 
 
-const ContactModal = ({ isOpen, onClose, darkMode, t }) => {
+const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, darkMode, t }) => {
   if (!isOpen) return null;
 
   const contactLinks = [
@@ -143,7 +169,7 @@ const PixelPortfolio = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [language, setLanguage] = useState("en");
-  const [translations, setTranslations] = useState(initialTranslations);
+  const [translations, setTranslations] = useState<TranslationContent>(initialTranslations);
 
   useEffect(() => {
     const fetchTranslations = async () => {
@@ -168,7 +194,7 @@ const PixelPortfolio = () => {
 
   const t = translations; // Alias for easier access
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent) => {
     if (!e.currentTarget) return;
     const rect = e.currentTarget.getBoundingClientRect();
     setMousePos({
@@ -355,7 +381,7 @@ const PixelPortfolio = () => {
               </div>
               <p className="text-gray-400 mb-4 italic">{job.mission}</p>
               <ul className="space-y-2">
-                {job.achievements.map((achievement, i) => (
+                {job.achievements.map((achievement: string, i: number) => (
                   <li key={i} className="flex items-start gap-2 text-gray-300">
                     {index === 0 && i === 0 ? (
                       <Star

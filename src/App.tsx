@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PixelPortfolio from "./components/PixelPortfolio";
 import ProjectsPage from "./components/ProjectsPage";
-import UnderConstruction from "./components/UnderConstruction";
 
 import "./App.css";
 
